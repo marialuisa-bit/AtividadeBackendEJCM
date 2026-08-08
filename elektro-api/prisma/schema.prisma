@@ -12,7 +12,8 @@ model Usuario {
   nome        String
   cpf         String    @unique
   email       String    @unique
-  senha       String
+  hash        String
+  salt        String
   telefone    String?
   foto_perfil String?
 
