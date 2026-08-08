@@ -7,7 +7,7 @@ const validar = require("../middlewares/validarMiddleware");
 const { usuarioSchema } = require("../schemas/usuarioSchema");
 const autenticarToken = require("../middlewares/authMiddleware");
 
-// Cadastro Público (com Foto e Zod)
+//cadastro publico (foto e zod)
 router.post(
   "/", 
   upload.single("foto_perfil"), 
@@ -15,7 +15,7 @@ router.post(
   usuarioController.criar
 );
 
-// Rotas Protegidas com Token JWT
+//rota protegida c/ token
 router.get("/", autenticarToken, usuarioController.listar);
 router.get("/:id", autenticarToken, usuarioController.buscar);
 router.put("/:id", autenticarToken, usuarioController.atualizar);

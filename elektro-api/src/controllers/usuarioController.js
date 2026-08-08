@@ -3,10 +3,6 @@ const usuarioService = require("../services/usuarioService");
 async function criar(req, res) {
   try {
     const usuario = await usuarioService.criarUsuario(req.body, req.file);
-    
-    // Opcional: deleta dados sensíveis antes de responder
-    delete usuario.hash;
-    delete usuario.salt;
 
     res.status(201).json(usuario);
   } catch (error) {
